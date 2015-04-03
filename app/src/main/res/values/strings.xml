@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">K-Means Clustering</string>
+    <string name="add_node">Add Node</string>
+    <string name="remove_node">Remove Node</string>
+    <string name="process_image">Process Image</string>
+    <string name="image_description">Image to be processed</string>
+</resources>

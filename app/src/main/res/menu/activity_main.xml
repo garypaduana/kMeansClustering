@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/add_node"
+          android:title="@string/add_node"
+          android:orderInCategory="1"
+          android:showAsAction="always"
+          android:icon="@drawable/add_node"
+          android:maxWidth="48dp"
+          android:maxHeight="48dp"
+          android:adjustViewBounds="true"
+          android:scaleType="centerInside"
+          android:menuCategory="system"/>
+    <item android:id="@+id/remove_node"
+          android:title="@string/remove_node"
+          android:orderInCategory="2"
+          android:showAsAction="always"
+          android:icon="@drawable/remove_node"
+          android:maxWidth="48dp"
+          android:maxHeight="48dp"
+          android:adjustViewBounds="true"
+          android:scaleType="centerInside"
+          android:menuCategory="system"/>
+    <item android:id="@+id/process_image"
+          android:title="@string/process_image"
+          android:orderInCategory="3"
+          android:showAsAction="never|withText"
+          android:menuCategory="system"/>
+</menu>

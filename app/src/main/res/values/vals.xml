@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <dimen name="mainFontSize">14sp</dimen>
+    <dimen name="secondaryFontSize">12sp</dimen>
+    <dimen name="tickerFontSize">18sp</dimen>
+</resources>
