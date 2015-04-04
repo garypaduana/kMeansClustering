@@ -18,28 +18,28 @@ public class KMeansClusteringTask extends AsyncTask<ClusteringInfo, ClusteringIn
 	
 	@Override
 	protected ClusteringInfo doInBackground(ClusteringInfo... params) {
-		
+
+        if(isCancelled()){
+            return null;
+        }
+
 		int count = params.length;
 		if(count != 1){
 			throw new IllegalArgumentException("Incorrect parameter size!");
 		}
-		
-		Point.Type t = Point.Type.DIMEN;
-		
+
 		ClusteringInfo ci = params[0];
 		ci.getClusters().clear();
 		
-		if(ci.isBitmapAvailable()){
-			t = Point.Type.COLOR;
-		}
-		
 		// initialize the clusters to a few of the first points
-		for(int i = 0; i < ci.getDesiredClusterSize(); i++){
-			ci.getClusters().add(
-				new Point(ci.getPoints().get(i).getX(t), 
-						  ci.getPoints().get(i).getY(t),
-						  ci.getPoints().get(i).getZ(t)));
-		}
+		for(int i = 0; i < ci.getDesiredClusterSize(); i++) {
+            if(ci.getPoints().size() > 0) {
+                ci.getClusters().add(
+                        new Point(ci.getPoints().get(i).getX(),
+                                ci.getPoints().get(i).getY()));
+            }
+        }
+
 		double totalMovement = Double.MAX_VALUE;
 		
 		//while(totalMovement > movementTolerance){
@@ -65,7 +65,7 @@ public class KMeansClusteringTask extends AsyncTask<ClusteringInfo, ClusteringIn
 				double minDistance = Double.MAX_VALUE;
 				Point nearestCluster = null;
 				for(Point c : ci.getClusters()){
-					double distance = CalculationUtil.findDistance(p, c, t);
+					double distance = CalculationUtil.findDistance(p, c);
 					if(distance < minDistance || nearestCluster == null){
 						nearestCluster = c;
 						minDistance = distance;
@@ -87,12 +87,10 @@ public class KMeansClusteringTask extends AsyncTask<ClusteringInfo, ClusteringIn
 				
 				float xCenter = 0.0f;
 				float yCenter = 0.0f;
-				float zCenter = 0.0f;
-				
+
 				for(Point child : ci.getClusterToPointMap().get(c)){
-					xCenter += child.getX(t);
-					yCenter += child.getY(t);
-					zCenter += child.getZ(t);
+					xCenter += child.getX();
+					yCenter += child.getY();
 				}
 				
 				Point newCenter = null;
@@ -100,24 +98,14 @@ public class KMeansClusteringTask extends AsyncTask<ClusteringInfo, ClusteringIn
 				if(ci.getClusterToPointMap().get(c).size() > 0){
 					xCenter = xCenter / ci.getClusterToPointMap().get(c).size();
 					yCenter = yCenter / ci.getClusterToPointMap().get(c).size();
-					zCenter = zCenter / ci.getClusterToPointMap().get(c).size();
-					
-					if(t.equals(Point.Type.COLOR)){
-						// The cluster needs to be an actual point, not just an average
-						// find the point with shortest distance
-						newCenter = CalculationUtil.findNearestPoint(
-							ci.getClusterToPointMap().get(c), 
-							new Point(xCenter, yCenter, zCenter), t);
-					}
-					else{
-						newCenter = new Point(xCenter, yCenter, zCenter);
-					}
+
+					newCenter = new Point(xCenter, yCenter);
 				}
 				else{
 					newCenter = c;
 				}
 				
-				totalMovement += CalculationUtil.findDistance(newCenter, c, t);
+				totalMovement += CalculationUtil.findDistance(newCenter, c);
 				
 				if(!newCenter.equals(c)){
 					movedClusters.add(c);
@@ -140,11 +128,6 @@ public class KMeansClusteringTask extends AsyncTask<ClusteringInfo, ClusteringIn
 			
 			iterations++;
 			publishProgress(ci.clone());
-//			try {
-//				Thread.sleep(70);
-//			} catch (InterruptedException e) {
-//				e.printStackTrace();
-//			}
 		}
 		return ci.clone();
 		

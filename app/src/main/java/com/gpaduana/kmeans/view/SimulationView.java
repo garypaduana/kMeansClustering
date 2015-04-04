@@ -31,8 +31,7 @@ public class SimulationView extends SurfaceView implements Runnable {
 	private Map<Point, List<List<Point>>> edges = new HashMap<Point, List<List<Point>>>();
 	private int lastPointCount = -1;
 	private int lastNodeCount = -1;
-	private Bitmap image = null;
-	
+
 	public SimulationView(Context context, KMeansClusteringSimulatorActivity parent) {
 		super(context);
 		this.parent = parent;
@@ -58,22 +57,14 @@ public class SimulationView extends SurfaceView implements Runnable {
 				ClusteringInfo ci = this.parent.getProcessing().getClusteringInfo();
 				
 				canvas.drawARGB(145, 240, 240, 240);
-				boolean trans = false;
-				
-				Point.Type t = Point.Type.DIMEN;
-				
-				if(this.image != null){
-		        	canvas.drawBitmap(this.image, 0, 0, null);
-		        	trans = true;
-				}
-				
+
 				for(Point cluster : ci.getClusters()){
-					canvas.drawPoint(cluster.getX(t),
-									 cluster.getY(t), red);
+					canvas.drawPoint(cluster.getX(),
+									 cluster.getY(), red);
 				}
 				
 				for(Point p : ci.getPoints()){
-					canvas.drawPoint(p.getX(t), p.getY(t), black);
+					canvas.drawPoint(p.getX(), p.getY(), black);
 				}
 				
 				for(Point cluster : ci.getClusterToPointMap().keySet()){					
@@ -83,22 +74,22 @@ public class SimulationView extends SurfaceView implements Runnable {
 						   ci.getClusters().size() != lastNodeCount){
 														
 							edges.put(cluster, CalculationUtil.findEdges(
-								ci.getClusterToPointMap().get(cluster), cluster, t));
+								ci.getClusterToPointMap().get(cluster), cluster));
 						}
 						
 						for(List<Point> edge : edges.get(cluster)){
-							canvas.drawLine(edge.get(0).getX(t), edge.get(0).getY(t),
-											edge.get(1).getX(t), edge.get(1).getY(t), blackThin);
+							canvas.drawLine(edge.get(0).getX(), edge.get(0).getY(),
+											edge.get(1).getX(), edge.get(1).getY(), blackThin);
 						}
 					}
 					else{
 						List<Point> children = ci.getClusterToPointMap().get(cluster);
 						if(children != null){
 							for(int i = 0, j = 1; j < children.size(); i++, j++){
-								canvas.drawLine(children.get(i).getX(t),
-												children.get(i).getY(t),
-												children.get(j).getX(t),
-												children.get(j).getY(t), blackThin);
+								canvas.drawLine(children.get(i).getX(),
+												children.get(i).getY(),
+												children.get(j).getX(),
+												children.get(j).getY(), blackThin);
 							}
 						}
 					}
@@ -153,13 +144,5 @@ public class SimulationView extends SurfaceView implements Runnable {
     			getResources().getDimensionPixelSize(R.dimen.tickerFontSize),
     			padding, y,	255, 0, 0, 0, strokeWidth, Paint.Align.LEFT);
     	nodes.draw(canvas);
-	}
-	
-	public void setImage(Bitmap image){
-		this.image = image;
-	}
-
-	public Bitmap getImage(){
-		return image;
 	}
 }

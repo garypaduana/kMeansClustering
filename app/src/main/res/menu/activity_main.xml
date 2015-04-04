@@ -20,9 +20,9 @@
           android:adjustViewBounds="true"
           android:scaleType="centerInside"
           android:menuCategory="system"/>
-    <item android:id="@+id/process_image"
-          android:title="@string/process_image"
+    <item android:id="@+id/clear_points"
+          android:title="@string/clear_points"
           android:orderInCategory="3"
-          android:showAsAction="never|withText"
+          android:showAsAction="ifRoom"
           android:menuCategory="system"/>
 </menu>

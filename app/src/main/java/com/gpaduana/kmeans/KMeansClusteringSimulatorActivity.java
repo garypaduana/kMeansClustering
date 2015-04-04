@@ -1,22 +1,15 @@
 package com.gpaduana.kmeans;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
-import android.widget.ImageView;
 
 import com.actionbarsherlock.app.SherlockActivity;
 import com.actionbarsherlock.view.Menu;
 import com.actionbarsherlock.view.MenuItem;
 import com.gpaduana.kmeans.domain.ClusteringInfo;
 import com.gpaduana.kmeans.domain.Point;
-import com.gpaduana.kmeans.task.BitmapTask;
 import com.gpaduana.kmeans.task.KMeansClusteringTask;
 import com.gpaduana.kmeans.view.SimulationView;
 
@@ -39,7 +32,6 @@ public class KMeansClusteringSimulatorActivity extends SherlockActivity implemen
 
 	@Override
 	protected void onPause() { 	
-		// TODO Auto-generated method stub
 		kMeansClustering.cancel(true);
 		simulationView.pause();
 		super.onPause();
@@ -47,7 +39,6 @@ public class KMeansClusteringSimulatorActivity extends SherlockActivity implemen
 
 	@Override
 	protected void onResume() {
-		// TODO Auto-generated method stub
 		simulationView.resume();
 		super.onResume();
 		
@@ -55,7 +46,8 @@ public class KMeansClusteringSimulatorActivity extends SherlockActivity implemen
 
 	@Override
 	public boolean onTouch(View view, MotionEvent motionEvent) {
-		Point p = new Point(motionEvent.getX(), motionEvent.getY(), 0);
+		Point p = new Point(motionEvent.getX(), motionEvent.getY());
+        
 		clusteringInfo.getPoints().add(p);
 		refreshDataSet();
 		
@@ -83,38 +75,13 @@ public class KMeansClusteringSimulatorActivity extends SherlockActivity implemen
             case R.id.remove_node:
             	removeNode();
             	break;
-            case R.id.process_image:
-            	pickImage();
-            	break;
+            case R.id.clear_points:
+                clearPoints();
+                break;
         }	
         return super.onOptionsItemSelected(item);
     }
-    
-    private void pickImage() {
-		Intent intent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-		intent.setType("image/*");
-		startActivityForResult(intent, 1);
-	}
-    
-    @Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if(requestCode == 1 && resultCode == Activity.RESULT_OK){
-			String path = getRealPathFromURI(data.getData(), this);
-			BitmapTask bwt = new BitmapTask(this, path, simulationView.getWidth(), simulationView.getHeight());
-			bwt.execute();
-		}
-		super.onActivityResult(requestCode, resultCode, data);
-	}
-    
-    @SuppressWarnings("deprecation")
-	public static String getRealPathFromURI(Uri contentUri, Activity activity) {
-        String[] proj = { MediaStore.Images.Media.DATA };
-        Cursor cursor = activity.managedQuery(contentUri, proj, null, null, null);
-        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-        cursor.moveToFirst();
-        return cursor.getString(column_index);
-    }
-	
+
     /**
      * If cluster size is greater than or larger than 2, subtract 1 cluster
      */
@@ -133,12 +100,17 @@ public class KMeansClusteringSimulatorActivity extends SherlockActivity implemen
 		clusteringInfo.setDesiredClusterSize(
 				clusteringInfo.getDesiredClusterSize() + 1);
 		
-		if(clusteringInfo.getDesiredClusterSize() > clusteringInfo.getPoints().size() &&
-				!clusteringInfo.isBitmapAvailable()){
+		if(clusteringInfo.getDesiredClusterSize() > clusteringInfo.getPoints().size()){
 			clusteringInfo.setDesiredClusterSize(clusteringInfo.getPoints().size());
 		}
 		refreshDataSet();
 	}
+
+    private void clearPoints(){
+        kMeansClustering.cancel(true);
+        clusteringInfo = new ClusteringInfo();
+        refreshDataSet();
+    }
 
 	public ClusteringInfo getClusteringInfo() {
 		return clusteringInfo;
@@ -163,6 +135,4 @@ public class KMeansClusteringSimulatorActivity extends SherlockActivity implemen
 	public void setSimulationView(SimulationView simulationView) {
 		this.simulationView = simulationView;
 	}
-
-	
 }

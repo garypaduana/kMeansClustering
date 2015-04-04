@@ -10,7 +10,19 @@ public class TextOverlay{
 	private int x, y;
 	private Paint strokePaint;
 	private Paint textPaint;
-	
+
+    /**
+     * @param text - value to be displayed
+     * @param size - text size
+     * @param x - location on x-axis
+     * @param y - location on y-axis
+     * @param a - alpha channel (opacity) value
+     * @param r - red
+     * @param g - green
+     * @param b - blue
+     * @param strokeWidth
+     * @param align
+     */
 	public TextOverlay(String text, int size, int x, int y,
 			int a, int r, int g, int b, int strokeWidth, Paint.Align align){
 		this.text = text;
@@ -33,7 +45,12 @@ public class TextOverlay{
 	    textPaint.setTypeface(Typeface.DEFAULT_BOLD);
 	    textPaint.setAntiAlias(true);
 	}
-	
+
+    /**
+     * Draws this objects defined text and stroke to a canvas.
+     *
+     * @param canvas
+     */
 	public void draw(Canvas canvas) {
 	    canvas.drawText(text, x, y, strokePaint);
 	    canvas.drawText(text, x, y, textPaint);
