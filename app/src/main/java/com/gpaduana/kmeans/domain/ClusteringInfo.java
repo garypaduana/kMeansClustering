@@ -13,6 +13,9 @@ public class ClusteringInfo {
     private Map<Point, List<Point>> clusterToPointsMap = Collections.synchronizedMap(new HashMap<Point, List<Point>>());
     private int desiredClusterSize = 1;
 
+    // Visual touch notifications
+    private Map<Point, Long> touchPointsByBirth = Collections.synchronizedMap(new HashMap<Point, Long>());
+
     public List<Point> getPoints() {
         return points;
     }
@@ -43,6 +46,7 @@ public class ClusteringInfo {
         clone.getClusters().addAll(this.clusters);
         clone.getClusterToPointMap().putAll(this.clusterToPointsMap);
         clone.setDesiredClusterSize(this.desiredClusterSize);
+        clone.getTouchPointsByBirth().putAll(this.touchPointsByBirth);
         return clone;
     }
 
@@ -52,5 +56,13 @@ public class ClusteringInfo {
 
     public void setDesiredClusterSize(int desiredClusterSize) {
         this.desiredClusterSize = desiredClusterSize;
+    }
+
+    public Map<Point, Long> getTouchPointsByBirth() {
+        return touchPointsByBirth;
+    }
+
+    public void setTouchPointsByBirth(Map<Point, Long> touchPointsByBirth) {
+        this.touchPointsByBirth = touchPointsByBirth;
     }
 }

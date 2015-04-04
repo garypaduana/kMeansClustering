@@ -2,6 +2,7 @@ package com.gpaduana.kmeans.view;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -28,9 +29,12 @@ public class SimulationView extends SurfaceView implements Runnable {
 	private Paint black = new Paint();
 	private Paint red = new Paint();
 	private Paint blackThin = new Paint();
+    private Paint blue = new Paint();
 	private Map<Point, List<List<Point>>> edges = new HashMap<Point, List<List<Point>>>();
 	private int lastPointCount = -1;
 	private int lastNodeCount = -1;
+    private static int TOUCH_EVENT_MAX_RADIUS = 50;
+    private static double TOUCH_EVENT_DURATION = 1e9;
 
 	public SimulationView(Context context, KMeansClusteringSimulatorActivity parent) {
 		super(context);
@@ -44,6 +48,8 @@ public class SimulationView extends SurfaceView implements Runnable {
 		
 		red.setARGB(255, 255, 0, 0);
 		red.setStrokeWidth(12.0f);
+
+        blue.setARGB(128, 40, 70, 255);
 		
 		resume();
 	}
@@ -55,7 +61,7 @@ public class SimulationView extends SurfaceView implements Runnable {
 			if(surfaceHolder.getSurface().isValid()){
 				Canvas canvas = surfaceHolder.lockCanvas();
 				ClusteringInfo ci = this.parent.getProcessing().getClusteringInfo();
-				
+
 				canvas.drawARGB(145, 240, 240, 240);
 
 				for(Point cluster : ci.getClusters()){
@@ -94,6 +100,19 @@ public class SimulationView extends SurfaceView implements Runnable {
 						}
 					}
 				}
+
+                for(Iterator<Map.Entry<Point, Long>> it = ci.getTouchPointsByBirth().entrySet().iterator(); it.hasNext();){
+                    Map.Entry<Point, Long> touchEvent = it.next();
+                    long difference = System.nanoTime() - touchEvent.getValue();
+                    if(difference < TOUCH_EVENT_DURATION) {
+                        canvas.drawCircle(touchEvent.getKey().getX(), touchEvent.getKey().getY(),
+                                TOUCH_EVENT_MAX_RADIUS - (long)(difference / TOUCH_EVENT_DURATION
+                                        * TOUCH_EVENT_MAX_RADIUS), blue);
+                    }
+                    else{
+                        it.remove();
+                    }
+                }
 				
 				// Draw text
 				updateTextOverlays(canvas, ci);
@@ -113,7 +132,6 @@ public class SimulationView extends SurfaceView implements Runnable {
 			try {
 				thread.join();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			break;

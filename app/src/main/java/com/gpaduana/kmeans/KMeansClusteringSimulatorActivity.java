@@ -47,8 +47,9 @@ public class KMeansClusteringSimulatorActivity extends SherlockActivity implemen
 	@Override
 	public boolean onTouch(View view, MotionEvent motionEvent) {
 		Point p = new Point(motionEvent.getX(), motionEvent.getY());
-        
+
 		clusteringInfo.getPoints().add(p);
+        clusteringInfo.getTouchPointsByBirth().put(p, System.nanoTime());
 		refreshDataSet();
 		
 		return false;
