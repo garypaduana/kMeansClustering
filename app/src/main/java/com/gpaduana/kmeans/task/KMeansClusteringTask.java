@@ -29,22 +29,25 @@ public class KMeansClusteringTask extends AsyncTask<ClusteringInfo, ClusteringIn
 		}
 
 		ClusteringInfo ci = params[0];
-		ci.getClusters().clear();
-		
-		// initialize the clusters to a few of the first points
-		for(int i = 0; i < ci.getDesiredClusterSize(); i++) {
-            if(ci.getPoints().size() > 0) {
-                ci.getClusters().add(
-                        new Point(ci.getPoints().get(i).getX(),
-                                ci.getPoints().get(i).getY()));
+
+        if(ci.getClusters().size() != ci.getDesiredClusterSize()) {
+            ci.getClusters().clear();
+
+            // initialize the clusters to a few of the first points
+            for (int i = 0; i < ci.getDesiredClusterSize(); i++) {
+                if (ci.getPoints().size() > 0) {
+                    ci.getClusters().add(
+                            new Point(ci.getPoints().get(i).getX(),
+                                    ci.getPoints().get(i).getY()));
+                }
             }
         }
 
 		double totalMovement = Double.MAX_VALUE;
 		
-		//while(totalMovement > movementTolerance){
-		while(iterations < 5){
-			if(isCancelled()){
+		while(totalMovement > movementTolerance){
+
+            if(isCancelled()){
 				return null;
 			}
 			// Assume everything worked great!
@@ -71,7 +74,6 @@ public class KMeansClusteringTask extends AsyncTask<ClusteringInfo, ClusteringIn
 						minDistance = distance;
 					}
 				}
-				
 				ci.getClusterToPointMap().get(nearestCluster).add(p);
 			}
 			
@@ -146,5 +148,4 @@ public class KMeansClusteringTask extends AsyncTask<ClusteringInfo, ClusteringIn
 	public ClusteringInfo getClusteringInfo(){
 		return clusteringInfo.clone();
 	}
-
 }

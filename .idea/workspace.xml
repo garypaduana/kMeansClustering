@@ -49,11 +49,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimulationView.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="SimulationView.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/view/SimulationView.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.50830567" vertical-offset="0" max-vertical-offset="3101">
-              <caret line="36" column="49" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="3080">
+              <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="false" />
               </folding>
@@ -64,18 +64,8 @@
       <file leaf-file-name="Canvas.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://C:/Android/android-sdk/sources/android-17/android/graphics/Canvas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="13383" max-vertical-offset="30590">
+            <state vertical-scroll-proportion="0.0" vertical-offset="13383" max-vertical-offset="30569">
               <caret line="799" column="16" selection-start-line="799" selection-start-column="16" selection-end-line="799" selection-end-column="16" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KMeansClusteringTask.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/task/KMeansClusteringTask.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2265" max-vertical-offset="3135">
-              <caret line="146" column="32" selection-start-line="146" selection-start-column="32" selection-end-line="146" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -94,11 +84,19 @@
       <file leaf-file-name="KMeansClusteringSimulatorActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/KMeansClusteringSimulatorActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.821429" vertical-offset="1713" max-vertical-offset="2716">
-              <caret line="123" column="32" selection-start-line="123" selection-start-column="32" selection-end-line="123" selection-end-column="32" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="60.82143" vertical-offset="2043" max-vertical-offset="2882">
+              <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KMeansClusteringTask.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/task/KMeansClusteringTask.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3148148" vertical-offset="0" max-vertical-offset="3144">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -897,21 +895,19 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/task/BitmapTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/task/KMeansClusteringTask.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/util/CalculationUtil.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/overlay/TextOverlay.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/domain/Point.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/KMeansClusteringSimulatorActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/domain/ClusteringInfo.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/view/SimulationView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/task/KMeansClusteringTask.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-4" />
-    <option name="y" value="-4" />
-    <option name="width" value="1850" />
-    <option name="height" value="1088" />
+    <option name="width" value="1035" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1122,8 +1118,8 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="emulator-5554" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="high_dpi" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_21_x86" />
     <property name="options.lastSelected" value="reference.idesettings.emmet" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -1321,7 +1317,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-4" y="-4" width="1850" height="1088" extended-state="1" />
+    <frame x="0" y="0" width="1035" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -1334,13 +1330,13 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298109" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32939914" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32978722" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33261803" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24972191" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1688708" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Memory Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32978722" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -1372,13 +1368,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/task/KMeansClusteringTask.java</url>
-          <line>2</line>
-          <properties />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="1" />
     </breakpoint-manager>
   </component>
@@ -1518,32 +1507,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Android/android-sdk/sources/android-17/android/graphics/Canvas.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="13383" max-vertical-offset="30590">
-          <caret line="799" column="16" selection-start-line="799" selection-start-column="16" selection-end-line="799" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/task/KMeansClusteringTask.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2265" max-vertical-offset="3135">
-          <caret line="146" column="32" selection-start-line="146" selection-start-column="32" selection-end-line="146" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/KMeansClusteringSimulatorActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.821429" vertical-offset="1713" max-vertical-offset="2716">
-          <caret line="123" column="32" selection-start-line="123" selection-start-column="32" selection-end-line="123" selection-end-column="32" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/domain/ClusteringInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="514" max-vertical-offset="1724">
@@ -1554,11 +1517,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/view/SimulationView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50830567" vertical-offset="0" max-vertical-offset="3101">
-          <caret line="36" column="49" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="3080">
+          <caret line="33" column="36" selection-start-line="33" selection-start-column="36" selection-end-line="33" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Android/android-sdk/sources/android-17/android/graphics/Canvas.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="13383" max-vertical-offset="30590">
+          <caret line="799" column="16" selection-start-line="799" selection-start-column="16" selection-end-line="799" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/KMeansClusteringSimulatorActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="60.82143" vertical-offset="2043" max-vertical-offset="2882">
+          <caret line="20" column="20" selection-start-line="20" selection-start-column="20" selection-end-line="20" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/gpaduana/kmeans/task/KMeansClusteringTask.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3148148" vertical-offset="0" max-vertical-offset="3144">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
